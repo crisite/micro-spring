@@ -1,5 +1,7 @@
 package com.crisite.springframework.bean.factory;
 
+import com.crisite.springframework.bean.factory.config.BeanDefinition;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,14 +12,13 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Author: Rao Sheng
  * @Date: 2024/3/30 15:39
  */
-public class BeanFactory {
-    private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
+public interface BeanFactory {
 
-    public Object getBean(String name) {
-        return beanDefinitionMap.get(name);
-    }
+    /**
+     * 获取Bean
+     * @param name
+     * @return
+     */
+    public Object getBean(String name);
 
-    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) {
-        beanDefinitionMap.put(name, beanDefinition);
-    }
 }
