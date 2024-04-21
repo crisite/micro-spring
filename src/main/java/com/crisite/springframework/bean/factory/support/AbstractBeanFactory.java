@@ -13,15 +13,31 @@ import com.crisite.springframework.bean.factory.config.BeanDefinition;
  */
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
     @Override
-    public Object getBean(String name) {
+    public Object getBean(String name) throws BeansException {
+        return doGetBean(name, null);
+    }
+
+    @Override
+    public Object getBean(String name, Object... args) {
+        return doGetBean(name, args);
+    }
+
+    /**
+     * @TODO: 这里的<T> T 没懂 讲道理
+     *
+     * @param name:
+     * @param args:
+     * @return T
+     */
+    public <T> T doGetBean(String name, Object[] args) {
         Object bean = getSingleton(name);
         if (bean != null) {
-            return bean;
+            return (T) bean;
         }
 
         // 只有在第一次调用 getBean 的时候才 createBean吗？ 不应该啊
         BeanDefinition beanDefinition = getBeanDefinition(name);
-        return createBean(name, beanDefinition);
+        return (T) createBean(name, beanDefinition, args);
     }
 
     /**
@@ -45,5 +61,5 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
      * @return
      * @throws BeansException
      */
-    protected abstract Object createBean(String beanName, BeanDefinition beanDefinition) throws BeansException;
+    protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException;
 }
