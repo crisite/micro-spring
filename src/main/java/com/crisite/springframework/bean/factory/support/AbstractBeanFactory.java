@@ -23,11 +23,10 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     }
 
     /**
-     * @TODO: 这里的<T> T 没懂 讲道理
      *
      * @param name:
      * @param args:
-     * @return T
+     * @return T 返回类型为 <T> T 可以在调用方法是指定返回类型, 避免了多余的类型强转 (可是现在在这个方法内就强转了一次来着..)
      */
     public <T> T doGetBean(String name, Object[] args) {
         Object bean = getSingleton(name);

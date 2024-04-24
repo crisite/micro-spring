@@ -30,17 +30,14 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     }
 
     /**
-     * @TODO: 没看懂
-     *
-     * @param beanName:
-     * @param beanDefinition:
-     * @param args:
-     * @return Object
+     *  在此处调用 Bean 的实例化方法 后续应该仍需优化
      */
     protected Object createBeanInstance(String beanName, BeanDefinition beanDefinition, Object[] args) {
         Constructor constructorToUse = null;
         Class<?> beanClass = beanDefinition.getBeanClass();
         Constructor<?>[] declaredConstructors = beanClass.getDeclaredConstructors();
+        // 跟 入参列表长度 具有相同长度的 构造函数参数列表 的构造函数即是所需构造函数
+        // 获取所需构造函数 用于创建Bean实例
         for (Constructor<?> ctor : declaredConstructors) {
             if (args != null && ctor.getParameterTypes().length == args.length) {
                 constructorToUse = ctor;

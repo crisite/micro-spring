@@ -15,7 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public interface BeanFactory {
 
     /**
-     * 获取Bean
+     * 获取 bean 实例
+     * 包括创建 bean 实例 也是在 getBean 方法中实现(实现接口)
+     *
      * @param name
      * @return
      */

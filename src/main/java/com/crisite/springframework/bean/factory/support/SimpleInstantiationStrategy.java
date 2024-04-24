@@ -7,19 +7,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
+ * 通过反射的方式完成 bean 的实例化
+ *
  * @author: Puff
  */
 public class SimpleInstantiationStrategy implements InstantiationStrategy{
 
-    /**
-     * @TODO: 不懂
-     *
-     * @param beanDefinition:
-     * @param beanName:
-     * @param ctor:
-     * @param args:
-     * @return Object
-     */
     @Override
     public Object instantiate(BeanDefinition beanDefinition, String beanName, Constructor ctor, Object[] args) throws BeansException {
         Class beanClass = beanDefinition.getBeanClass();
