@@ -1,5 +1,7 @@
 package com.crisite.springframework.bean.factory.config;
 
+import com.crisite.springframework.bean.PropertyValues;
+
 /**
  * 在 spring 中 BeanDefinition 用于描述一个bean实例
  * 如这个实例拥有的属性值，构造函数的参数
@@ -12,8 +14,11 @@ public class BeanDefinition {
 
     private Class beanClass;
 
-    public BeanDefinition(Class beanClass) {
+    private PropertyValues propertyValues;
+
+    public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
         this.beanClass = beanClass;
+        this.propertyValues = propertyValues;
     }
 
     public Class getBeanClass() {
@@ -21,4 +26,12 @@ public class BeanDefinition {
     }
 
     public void setBeanClass(Class beanClass) { this.beanClass = beanClass; }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
+    }
 }
