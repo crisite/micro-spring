@@ -1,4 +1,4 @@
-package com.crisite.springframework.bean.factory.config;
+package com.crisite.springframework.beans.factory.config;
 
 /**
  * 单例注册表

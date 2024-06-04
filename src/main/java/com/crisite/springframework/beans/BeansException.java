@@ -1,4 +1,4 @@
-package com.crisite.springframework.bean;
+package com.crisite.springframework.beans;
 
 /**
  * Bean 相关的 Exception

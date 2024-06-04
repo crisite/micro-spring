@@ -1,6 +1,6 @@
-package com.crisite.springframework.bean.factory.support;
+package com.crisite.springframework.beans.factory.support;
 
-import com.crisite.springframework.bean.factory.config.SingletonBeanRegistry;
+import com.crisite.springframework.beans.factory.config.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;

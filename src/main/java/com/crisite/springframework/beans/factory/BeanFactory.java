@@ -1,9 +1,4 @@
-package com.crisite.springframework.bean.factory;
-
-import com.crisite.springframework.bean.factory.config.BeanDefinition;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+package com.crisite.springframework.beans.factory;
 
 /**
  * 在spring里 BeanFactory 是 spring bean容器的根接口

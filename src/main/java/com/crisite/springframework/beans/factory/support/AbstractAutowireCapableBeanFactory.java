@@ -1,11 +1,11 @@
-package com.crisite.springframework.bean.factory.support;
+package com.crisite.springframework.beans.factory.support;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.crisite.springframework.bean.BeansException;
-import com.crisite.springframework.bean.PropertyValue;
-import com.crisite.springframework.bean.PropertyValues;
-import com.crisite.springframework.bean.factory.config.BeanDefinition;
-import com.crisite.springframework.bean.factory.config.BeanReference;
+import com.crisite.springframework.beans.BeansException;
+import com.crisite.springframework.beans.PropertyValue;
+import com.crisite.springframework.beans.PropertyValues;
+import com.crisite.springframework.beans.factory.config.BeanDefinition;
+import com.crisite.springframework.beans.factory.config.BeanReference;
 
 import java.lang.reflect.Constructor;
 

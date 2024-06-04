@@ -1,7 +1,7 @@
-package com.crisite.springframework.bean.factory.support;
+package com.crisite.springframework.beans.factory.support;
 
-import com.crisite.springframework.bean.BeansException;
-import com.crisite.springframework.bean.factory.config.BeanDefinition;
+import com.crisite.springframework.beans.BeansException;
+import com.crisite.springframework.beans.factory.config.BeanDefinition;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.NoOp;
 

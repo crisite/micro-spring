@@ -1,6 +1,6 @@
-package com.crisite.springframework.bean.factory.config;
+package com.crisite.springframework.beans.factory.config;
 
-import com.crisite.springframework.bean.PropertyValues;
+import com.crisite.springframework.beans.PropertyValues;
 
 /**
  * 在 spring 中 BeanDefinition 用于描述一个bean实例
@@ -15,6 +15,11 @@ public class BeanDefinition {
     private Class beanClass;
 
     private PropertyValues propertyValues;
+
+    public BeanDefinition(Class beanClass) {
+        this.beanClass = beanClass;
+        this.propertyValues = new PropertyValues();
+    }
 
     public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
         this.beanClass = beanClass;

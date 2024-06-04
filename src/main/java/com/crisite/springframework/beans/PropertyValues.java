@@ -1,4 +1,4 @@
-package com.crisite.springframework.bean;
+package com.crisite.springframework.beans;
 
 import java.util.ArrayList;
 import java.util.List;

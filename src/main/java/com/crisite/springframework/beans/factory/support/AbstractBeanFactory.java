@@ -1,8 +1,8 @@
-package com.crisite.springframework.bean.factory.support;
+package com.crisite.springframework.beans.factory.support;
 
-import com.crisite.springframework.bean.BeansException;
-import com.crisite.springframework.bean.factory.BeanFactory;
-import com.crisite.springframework.bean.factory.config.BeanDefinition;
+import com.crisite.springframework.beans.BeansException;
+import com.crisite.springframework.beans.factory.BeanFactory;
+import com.crisite.springframework.beans.factory.config.BeanDefinition;
 
 /**
  * BeanDefinition 注册表接口
