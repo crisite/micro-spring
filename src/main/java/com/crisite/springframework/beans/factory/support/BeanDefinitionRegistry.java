@@ -18,4 +18,18 @@ public interface BeanDefinitionRegistry {
      */
     void registerBeanDefinition(String beanName, BeanDefinition beanDefinition);
 
+    /**
+     * 用于判断注册表中是否包含指定的 BeanDefinition
+     * @param beanName
+     * @return
+     */
+    boolean containsBeanDefinition(String beanName);
+
+    /**
+     * 返回注册表包含的所有 BeanDefinition 的名称
+     * @return
+     */
+    String[] getBeanDefinitionNames();
+
+
 }

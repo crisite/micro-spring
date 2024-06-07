@@ -2,13 +2,16 @@ package com.crisite.springframework.beans.factory.xml;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.XmlUtil;
+import com.crisite.springframework.beans.BeansException;
+import com.crisite.springframework.beans.PropertyValue;
 import com.crisite.springframework.beans.factory.BeanDefinitionStoreException;
 import com.crisite.springframework.beans.factory.config.BeanDefinition;
+import com.crisite.springframework.beans.factory.config.BeanReference;
 import com.crisite.springframework.beans.factory.support.AbstractBeanDefinitionReader;
 import com.crisite.springframework.beans.factory.support.BeanDefinitionRegistry;
 import com.crisite.springframework.core.io.Resource;
 import com.crisite.springframework.core.io.ResourceLoader;
-import com.sun.xml.internal.ws.util.StringUtils;
+import com.sun.deploy.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -81,10 +84,31 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
             // 定义 Bean
             BeanDefinition beanDefinition = new BeanDefinition(clazz);
 
-            // 读取属性并填充
+            // 从 xml 读取属性并填充
+            for (int j = 0; j < bean.getChildNodes().getLength(); j++) {
+                if (!(bean.getChildNodes().item(i) instanceof Element)) continue;
 
+                // 解析 property 标签内的数据
+                if (!"property".equals(bean.getChildNodes().item(j).getNodeName())) continue;
+                // 解析标签
+                Element property = (Element) bean.getChildNodes().item(j);
+                String attrName = property.getAttribute("name");
+                String attrValue = property.getAttribute("value");
+                String attrRef = property.getAttribute("ref");
 
+                // 获取属性值: 引入对象 值对象
+                Object value = StrUtil.isNotEmpty(attrRef) ? new BeanReference(attrRef) : attrValue;
 
+                // 创建属性信息
+                PropertyValue propertyValue = new PropertyValue(attrName, value);
+                beanDefinition.getPropertyValues().addPropertyValue(propertyValue);
+
+            }
+            if (getRegistry().containsBeanDefinition(beanName)) {
+                throw new BeansException("Duplicate beanName[" + beanName + "] is not allowed");
+            }
+
+            getRegistry().registerBeanDefinition(beanName, beanDefinition);
         }
     }
 }
