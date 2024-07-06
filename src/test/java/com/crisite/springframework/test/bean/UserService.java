@@ -5,7 +5,27 @@ package com.crisite.springframework.test.bean;
  * @Date: 2024/3/30 18:27
  */
 public class UserService {
-    public void queryUser() {
-        System.out.println("查询用户信息");
+    private String uId;
+
+    private UserDao userDao;
+
+    public String queryUserInfo() {
+        return userDao.queryUserName(uId);
+    }
+
+    public String getuId() {
+        return uId;
+    }
+
+    public void setuId(String uId) {
+        this.uId = uId;
+    }
+
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }
